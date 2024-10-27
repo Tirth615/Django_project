@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+
+</head>
+
+<body>
+<form action="insert/" enctype="multipart/form-data" method="get">
+    {% csrf_token %}
+    
+    CategoryName:
+    
+    <select id="category" name="productCategoryId" >
+            {% for category_value in category %}
+                    <option value="{{ category_value.category_id }}">
+                        {{ category_value.category_name }}
+                    </option>
+            {% endfor %}
+    </select><br /><br />
+
+
+    SubcategoryName:
+    <select id="productSubcategoryId" name="productSubCategoryId">
+        {% for subcategory_value in subcategory %}
+            <option value="{{ subcategory_value.subcategory_id }}">{{ subcategory_value.subcategory_name }}</option>
+        {% endfor %}
+    </select>
+    <br /><br />
+
+    product_name<input type="text" name="product_name" /><br /><br />
+
+    product_description<input type="text" name="product_description"/><br /><br />
+
+    product_price<input type="text" name="product_price" /><br /><br />
+
+    product_quantity<input type="text" name="product_quantity" /><br /><br />
+
+    <p>Upload Product Image: <input type="file" name="product_image" /></p>
+
+    <p><input type="submit" value="Upload" /></p>
+</form>
+</body>
+</html>

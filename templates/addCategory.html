@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Category</title>
+</head>
+<body>
+    <h1>Add Category</h1>
+    <form action="/insert_category/" method="Post">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td> Name:</td>
+                <td><input type="text" name="category_name" id="category_name" REQUIRED></td>
+            </tr>
+            <tr>
+                <td>Description:</td>
+                <td><input type="text" name="category_description" id="category_description" required></td>
+            </tr>
+    </table>
+        <input type="submit" value="Save">
+    </form><br>
+</body>
+</html>
