@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="viewCategory/" >
+    <table border="1">
+        <tr>
+            <td>Category Name</td>
+            <td>SubCategory Name</td>
+            <td>SubCategory Description</td>
+            <td>Delete</td>
+            <td>Edit</td>
+        </tr>
+        
+        {% for category_list in subcategory_vo_list %}
+            <tr>
+            
+            <td>{{ category_list.subcategory_category.category_name }}</td>
+            <td>{{ category_list.subcategory_name }}</td>
+            <td>{{ category_list.subcategory_description }}</td>
+            <td><a href="/delete_subcategory?subcategory_id={{ category_list.subcategory_id }}">Delete</a> </td>
+            <td><a href="/edit_subcategory?subcategory_id={{ category_list.subcategory_id }}">Edit</a> </td>
+            
+            </tr>
+            
+        {% endfor %}
+    </table>
+</form>
+</body>
+</html>

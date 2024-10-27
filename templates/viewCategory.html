@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta>
+    <title>View Category</title>
+</head>
+<body>
+{% csrf_token %}
+
+    <table border="1px" >
+        <tr>
+            <th>Category_Name</th>
+            <th>Category_Description</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        {% for i in category_vo_list %}
+            <tr>
+                <td>{{ i.category_name }}</td>
+                <td>{{ i.category_description }}</td>
+                <td><a href="/edit_category?category_id={{ i.category_id }}">Edit</a></td>
+                <td><a href="/delete_category?category_id={{ i.category_id }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

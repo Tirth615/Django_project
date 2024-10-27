@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <form action="update_subcategory/" method="Post">
+     {% csrf_token %}
+        <table>
+       
+           
+           <tr>
+               <td>Catefory Name</td>
+               <td><select name="category_id">
+     
+                    {% for category_value in category_vo_list %}
+                    <option value="{{ category_value.category_id }}">
+                        {{ category_value.category_name }}
+                    </option>
+            {% endfor %}
+                </select></td>
+           </tr>
+           {% for subcategory_value in subcategory_vo_list %}
+           <tr>
+                <td>Name:</td>
+                <td><input type="text" name="subcategory_name" id="subcategory_name" value="{{ subcategory_value.subcategory_name }}" required></td>
+           </tr>
+           <tr>
+                <td>Description:</td>
+                <td><input type="text" name="subcategory_description" id="subcategory_description" value="{{subcategory_value.subcategory_description }}" required></td>
+           </tr>
+        <input type="hidden" name="subcategory_id" value="{{ subcategory_value.subcategory_id }}">
+        
+        {% endfor %}
+    </table>
+    <input type="submit" value="Save">
+    </form>
+</body>
+</html>
